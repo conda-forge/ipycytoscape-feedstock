@@ -1,5 +1,5 @@
 {% set name = "ipycytoscape" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -20,8 +20,6 @@ requirements:
     - pip
   run:
     - python >=3.0
-    - networkx
-    - matplotlib-base
     - ipywidgets >=7.5.0,<8.0.0
     - traittypes >=0.2.1,<0.3.0
 
