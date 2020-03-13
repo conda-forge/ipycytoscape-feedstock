@@ -1,5 +1,5 @@
 {% set name = "ipycytoscape" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 07640be7a2e825793136b7cc46c72c276c63becb26dca0d86ef65623a69e7ca5
+  sha256: f048e0652a6360eae834bee07d0a730124aa7d23b83bfe417c7f103ce2d11a74
 
 build:
   number: 0
@@ -31,7 +31,7 @@ about:
   home: https://github.com/QuantStack/ipycytoscape/
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE.txt
+  license_file: LICENSE
   summary: 'Python implementation of the graph visualization tool Cytoscape'
 
 extra:
