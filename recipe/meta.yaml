@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f048e0652a6360eae834bee07d0a730124aa7d23b83bfe417c7f103ce2d11a74
+  patches:
+    - 0001-IJupyterWidgetRegistry-as-any.patch
 
 build:
   number: 0
