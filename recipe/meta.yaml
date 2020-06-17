@@ -1,5 +1,5 @@
 {% set name = "ipycytoscape" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 52f81405692d6f3f88c0d87cc32826cd3a013db7ca2228a9dedc5d2a0a6869e1
+  sha256: 4a3e03689de33b3053f2ea7e125d59e0499f9befddf4114074a00f3f7c84bf1b
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
@@ -35,7 +35,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Python implementation of the graph visualization tool Cytoscape'
+  summary: Python implementation of the graph visualization tool Cytoscape
 
 extra:
   recipe-maintainers:
