@@ -1,5 +1,5 @@
 {% set name = "ipycytoscape" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e69c62be41ad24ebbaa50b2d204bdca4cc1efd24eb66ec8d99d2934d096a675b
+  sha256: 5c541587b97a9f6fe56787a73d2b1691d85903cc139d32602ca006416f6c3f2c
 
 build:
   number: 0
