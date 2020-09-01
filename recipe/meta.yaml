@@ -26,12 +26,11 @@ requirements:
     - traittypes >=0.2.1,<0.3.0
     - spectate
     - networkx
+    - pandas
 
 test:
   imports:
     - ipycytoscape
-    - networkx
-    - pandas
 
 about:
   home: https://github.com/QuantStack/ipycytoscape/
