@@ -5,11 +5,9 @@ Home: https://github.com/QuantStack/ipycytoscape/
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ipycytoscape-feedstock/blob/master/LICENSE.txt)
 
 Summary: Python implementation of the graph visualization tool Cytoscape
-
-
 
 Current build status
 ====================
@@ -117,6 +115,7 @@ Feedstock Maintainers
 =====================
 
 * [@SylvainCorlay](https://github.com/SylvainCorlay/)
+* [@ianhi](https://github.com/ianhi/)
 * [@marimeireles](https://github.com/marimeireles/)
 * [@martinRenou](https://github.com/martinRenou/)
 * [@rmorshea](https://github.com/rmorshea/)
