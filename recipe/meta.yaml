@@ -17,12 +17,14 @@ build:
 requirements:
   host:
     - python >=3.0
+    - jupyterlab =3
+    - jupyter-packaging
     - pip
     - setuptools
     - nodejs
   run:
     - python >=3.0
-    - ipywidgets >=7.5.0,<8.0.0
+    - ipywidgets >=7.6.0,<8.0.0
     - traittypes >=0.2.1,<0.3.0
     - spectate
     - networkx
@@ -31,6 +33,13 @@ requirements:
 test:
   imports:
     - ipycytoscape
+  commands:
+    - test -f ${PREFIX}/share/jupyter/nbextensions/jupyter-cytoscape/extension.js                                       # [unix]
+    - test -f ${PREFIX}/share/jupyter/nbextensions/jupyter-cytoscape/index.js                                           # [unix]
+    - test -f ${PREFIX}/share/jupyter/labextensions/jupyter-cytoscape/package.json                                      # [unix]
+    - if exist %PREFIX%\\share\\jupyter\\nbextensions\\jupyter-cytoscape\\extension.js (exit 0) else (exit 1)           # [win]
+    - if exist %PREFIX%\\share\\jupyter\\nbextensions\\jupyter-cytoscape\\index.js (exit 0) else (exit 1)               # [win]
+    - if exist %PREFIX%\\share\\jupyter\\labextensions\\jupyter-cytoscape\\package.json (exit 0) else (exit 1)          # [win]
 
 about:
   home: https://github.com/QuantStack/ipycytoscape/
