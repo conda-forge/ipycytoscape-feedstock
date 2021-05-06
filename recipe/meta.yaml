@@ -29,11 +29,16 @@ requirements:
     - spectate
     - networkx
     - pandas
+    - neotime
+    - py2neo
 
 test:
+  requires:
+    - pip
   imports:
     - ipycytoscape
   commands:
+    - pip check
     - test -f ${PREFIX}/share/jupyter/nbextensions/jupyter-cytoscape/extension.js                                       # [unix]
     - test -f ${PREFIX}/share/jupyter/nbextensions/jupyter-cytoscape/index.js                                           # [unix]
     - test -f ${PREFIX}/share/jupyter/labextensions/jupyter-cytoscape/package.json                                      # [unix]
