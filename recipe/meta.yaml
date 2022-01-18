@@ -9,6 +9,9 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 67e44fe967166855999b394c5cb0ab6a4eda097c04f191737eb9daecb82413da
 
+  patches:
+    - 0001-update-klarna.patch
+
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
