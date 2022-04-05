@@ -1,5 +1,5 @@
 {% set name = "ipycytoscape" %}
-{% set version = "1.3.2" %}
+{% set version = "1.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 67e44fe967166855999b394c5cb0ab6a4eda097c04f191737eb9daecb82413da
-
-  patches:
-    - 0001-update-klarna.patch
+  sha256: b6f3199df034f088e92d388e27e629f58ae2901b213cb9299e5b564272f9a2f8
 
 build:
   number: 0
