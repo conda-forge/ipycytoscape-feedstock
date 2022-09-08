@@ -30,7 +30,7 @@ requirements:
 test:
   imports:
     - ipycytoscape
-    - m2-grep # [win]
+    - m2-grep  # [win]
   commands:
     - pip check
     - jupyter nbextension list
