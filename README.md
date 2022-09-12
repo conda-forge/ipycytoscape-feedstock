@@ -1,7 +1,7 @@
 About ipycytoscape
 ==================
 
-Home: https://github.com/QuantStack/ipycytoscape/
+Home: https://github.com/QuantStack/ipycytoscape
 
 Package license: BSD-3-Clause
 

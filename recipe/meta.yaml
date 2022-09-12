@@ -1,51 +1,56 @@
-{% set name = "ipycytoscape" %}
 {% set version = "1.3.3" %}
 
 package:
-  name: {{ name|lower }}
+  name: ipycytoscape
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/i/ipycytoscape/ipycytoscape-{{ version }}.tar.gz
   sha256: b6f3199df034f088e92d388e27e629f58ae2901b213cb9299e5b564272f9a2f8
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
+  script:
+    - npm install --save --dev "@jupyterlab/builder@3.4.6"
+    - {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
-    - python >=3.0
-    - jupyterlab =3
-    - jupyter-packaging
+    - jupyter-packaging >=0.7.0,<0.8.0
+    - jupyterlab >=3,<4
+    - nodejs >=16,<17
     - pip
-    - setuptools
-    - nodejs
+    - python >=3.7
   run:
-    - python >=3.0
-    - ipywidgets >=7.6.0,<8.0.0
-    - traittypes >=0.2.1,<0.3.0
+    - ipywidgets >=7.6.0
+    - python >=3.7
     - spectate
-    - networkx
-    - pandas
 
 test:
   imports:
     - ipycytoscape
+    - m2-grep  # [win]
   commands:
-    - test -f ${PREFIX}/share/jupyter/nbextensions/jupyter-cytoscape/extension.js                                       # [unix]
-    - test -f ${PREFIX}/share/jupyter/nbextensions/jupyter-cytoscape/index.js                                           # [unix]
-    - test -f ${PREFIX}/share/jupyter/labextensions/jupyter-cytoscape/package.json                                      # [unix]
-    - if exist %PREFIX%\\share\\jupyter\\nbextensions\\jupyter-cytoscape\\extension.js (exit 0) else (exit 1)           # [win]
-    - if exist %PREFIX%\\share\\jupyter\\nbextensions\\jupyter-cytoscape\\index.js (exit 0) else (exit 1)               # [win]
-    - if exist %PREFIX%\\share\\jupyter\\labextensions\\jupyter-cytoscape\\package.json (exit 0) else (exit 1)          # [win]
+    - pip check
+    - jupyter nbextension list
+    - jupyter nbextension list 1>nbextensions 2>&1
+    - jupyter labextension list
+    - jupyter labextension list 1>labextensions 2>&1
+    - grep -iE "jupyter-cytoscape.*OK" labextensions || exit 1
+    - grep -iE "jupyter-cytoscape/extension.*enabled" nbextensions || exit 1
+  requires:
+    - pip
+    - nbclassic
+    - jupyterlab >=3,<4
 
 about:
-  home: https://github.com/QuantStack/ipycytoscape/
+  home: https://github.com/QuantStack/ipycytoscape
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - ipycytoscape/labextension/static/third-party-licenses.json
   summary: Python implementation of the graph visualization tool Cytoscape
 
 extra:
