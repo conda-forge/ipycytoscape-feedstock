@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/ipycytoscape/ipycytoscape-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/i/ipycytoscape/ipycytoscape-{{ version }}.tar.gz
   sha256: b6f3199df034f088e92d388e27e629f58ae2901b213cb9299e5b564272f9a2f8
 
 build:
-  number: 1
+  number: 2
   script:
     - npm install --save --dev "@jupyterlab/builder@3.4.6"
     - {{ PYTHON }} -m pip install . -vv
@@ -21,10 +21,10 @@ requirements:
     - jupyterlab >=3,<4
     - nodejs >=16,<17
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - ipywidgets >=7.6.0
-    - python >=3.7
+    - python >={{ python_min }}
     - spectate
 
 test:
@@ -43,6 +43,7 @@ test:
     - pip
     - nbclassic
     - jupyterlab >=3,<4
+    - python {{ python_min }}
 
 about:
   home: https://github.com/QuantStack/ipycytoscape
